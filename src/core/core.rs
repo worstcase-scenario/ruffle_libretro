@@ -89,7 +89,7 @@ impl Core for Ruffle {
         }
 
         unsafe {
-            if let Err(e) = ctx.enable_vfs_interface(3) {
+            if let Err(e) = ctx.enable_vfs_interface(1) {
                 panic!("RETRO_ENVIRONMENT_GET_VFS_INTERFACE failed: {e}");
             }
         }
@@ -107,7 +107,7 @@ impl Core for Ruffle {
             let vfs = environment::get_vfs_interface(
                 self.environ_cb.get(),
                 retro_vfs_interface_info {
-                    required_interface_version: 3,
+                    required_interface_version: 1,
                     iface: ptr::null_mut(),
                 },
             );
